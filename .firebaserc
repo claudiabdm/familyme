@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "familyme-api": {
+      "hosting": {
+        "familyme": [
+          "familyme-api"
+        ]
+      }
+    }
+  }
+}

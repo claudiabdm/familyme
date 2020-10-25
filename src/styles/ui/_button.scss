@@ -1,0 +1,141 @@
+//------------------------------//
+// BUTTON                       //
+// ---------------------------- //
+:root {
+  --button-height: 3rem;
+  --button-font-size: 1.75rem;
+  --button-bgcolor: #{$primary};
+  --button-hover: #{darken($primary, 10%)};
+}
+
+.btn {
+  @include flex();
+  @include size($height: var(--button-height));
+
+  max-width: rem(375px);
+  border: 0;
+  border-radius: 5px;
+  padding: 5px;
+  background-color: var(--button-bgcolor);
+  color: #fff;
+  font-size: var(--button-font-size);
+  font-weight: $font-weight-bold;
+  text-align: center;
+  line-height: 0;
+  transition: background-color 0.1s linear;
+  cursor: pointer;
+
+  &+& {
+    margin-top: 30px;
+  }
+
+  &:disabled {
+    background-color: $grey-200;
+  }
+
+  &:hover:not(:disabled) {
+    background-color: var(--button-hover);
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: var(--box-shadow-sharpen);
+  }
+
+}
+
+//--- Colors ---//
+
+.btn--secondary {
+  --button-bgcolor: #{$secondary};
+  --button-hover: #{darken($secondary, 5%)};
+}
+
+.btn--success {
+  --button-bgcolor: #{$success};
+  --button-hover: #{darken($success, 5%)};
+}
+
+//--- Sizes ---//
+
+.btn--m {
+  --button-height: 1.875rem;
+  --button-font-size: 1.25rem;
+}
+
+.btn--sm {
+  --button-height: 1.563rem;
+  --button-font-size: 0.675rem;
+}
+
+.btn--xs {
+  width: fit-content;
+  height: 1rem;
+  --button-font-size: 0.675rem;
+}
+
+//--- Buttons that are icons ---//
+.btn--icon {
+  @include size(max-content, max-content);
+  padding: 0;
+  color: $grey-100;
+  background-color: rgba(0, 0, 0, 0);
+  border: 0;
+  transition: color 0.2s ease-out;
+  &:focus {
+    box-shadow: none;
+    color: $secondary;
+  }
+  &:hover {
+    color: #{darken($grey-100, 20%)};
+    --button-hover: rgba(0, 0, 0, 0);
+  }
+
+}
+
+// --- Settings button ---//
+.btn--settings {
+  @extend .btn--icon;
+  @include size(var(--button-height), var(--button-height));
+}
+
+//--- Close button ---//
+.btn--close {
+  width: max-content;
+  margin: 0;
+  padding: 10px 0 10px 10px;
+}
+
+//--- Back button ---//
+.btn--back {
+  @extend .btn--close;
+  padding: 0;
+}
+
+//--- Float button ---//
+.btn--float {
+  @include fixed($right: rem(20px), $bottom:(rem($navbar-height) + rem(5px)));
+  @include flex();
+  @include size(rem(50px));
+
+  border-radius: 100%;
+  background-color: var(--body-bg);
+  --button-hover: var(--body-bg);
+  font-size: $font-size-base;
+  font-weight: $font-weight-light;
+  box-shadow: var(--box-shadow-sharpen);
+  z-index: 1000;
+}
+
+//--- Reset button ---//
+.btn--reset {
+  color: #fff;
+  font-size: 1rem;
+  font-weight: $font-weight-light;
+}
+
+// --- Dropdown button --- //
+.btn--dropdown{
+  position: absolute;
+  right: 10px;
+}

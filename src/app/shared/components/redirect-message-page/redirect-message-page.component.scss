@@ -1,0 +1,47 @@
+@import  'global/variables';
+@import  'mixins/mixins';
+
+.message-page-container {
+  @include flex(center, flex-start);
+  flex-direction: column;
+  height: 100vh;
+  color: #fff;
+  background:$primary;
+}
+.header {
+  z-index: 1000;
+}
+.message {
+  @include size(100vw, max-content);
+  @include flex(center, space-around);
+  flex-direction: column;
+  padding: 30px;
+
+
+  &__status {
+    font-size: rem(100px);
+
+    &--sm {
+      font-size: rem(60px);
+      margin-bottom: 20px;
+    }
+  }
+
+  &__message {
+    font-size: rem(36px);
+    margin-bottom: 20px;
+    text-align: center;
+
+    &--sm {
+      font-size: rem(20px);
+    }
+  }
+
+  &__redirect {
+    color: #fff;
+
+    &:hover {
+      color: $secondary;
+    }
+  }
+}

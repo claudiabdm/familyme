@@ -1,0 +1,14 @@
+@import "global/variables";
+@import "mixins/mixins";
+
+.login {
+  @include size(100vw, 100vh);
+  position: relative;
+
+  &__link {
+    text-align: center;
+  }
+  &__footer {
+    @include absolute($bottom: $padding-sides);
+  }
+}
